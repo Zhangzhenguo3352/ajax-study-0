@@ -1,0 +1,20 @@
+{
+  "name": "ajax-study-0",
+  "version": "1.0.0",
+  "description": "回顾",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhangzhenguo3352/ajax-study-0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zhangzhenguo3352/ajax-study-0/issues"
+  },
+  "homepage": "https://github.com/Zhangzhenguo3352/ajax-study-0#readme"
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<form id="form_id" >
+      名字：<input type="text" name="username"><br>
+      密码：<input type="text" name="password"><br>
+      <input type="button"  onclick="sendGet()">
+</form>
+<body>
+  <script charset="utf-8">
+
+  function strungify(form){
+
+    var values = {};
+    Array.prototype.forEach.call(form.elements,function(element){
+
+      if(element.type == 'text'){
+        values[element.name] = element.value;
+      }
+    })
+
+    return JSON.stringify(values)
+  }
+
+
+
+    function sendGet(){
+      // 创建 ajax 请求
+      var xhr = new XMLHttpRequest();
+      // 初始化
+      xhr.open('POST','/post',true);
+      // 注册回调监听
+
+      // 告诉后台我是什么格式
+      xhr.setRequestHeader('Content-Type','application/json')
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+          //  状态码， 状态码描述
+          console.log(xhr.status,xhr.statusText) // 200 "OK"
+          console.log(xhr.responseText) // {"username":"SSS","password":"2123"}
+
+        }
+      }
+      xhr.send(strungify(document.querySelector('#form_id')));
+    }
+  </script>
+</body>
+</html>

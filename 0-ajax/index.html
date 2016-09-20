@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script charset="utf-8" src="./ajax.js"></script>
+<script charset="utf-8">
+
+    var xhr = createXHR();  // 1,创建了对象
+    //console.log(xhr) // 执行了 一个 大的方法
+    // 在浏览器 控制台中，再次输入： createXHR   它仅仅是 里面的一个小方法
+
+    // function(){
+    //   return new XMLHttpRequest;
+    // }
+
+    // 这就是 惰性 思想
+    xhr.open('get','note.txt',true); // 2, 打开了链接地址 ，状态码  0
+    // true 异步 ，代表在这个过程中 还可以做其它事情
+    // false 同步 ， 代表在这个过程中 不能做其它事情，输出结果就一个 4，响应主体内容 成功返回 客户端，才执行
+    xhr.onreadystatechange = function(){  // 在 open 前监听 可以输出 1 ，在open 后无法输出 1
+      console.log(xhr.readyState)  
+      // 2 响应头信息已经接受
+      // 3 主体返回的内容在服务器端进行处理
+      // 4 响应主体的内容已经成功返回到客户端
+    };
+    xhr.send(null);
+
+
+    // var xhr = createXHR();
+    // xhr.open('get','note.txt',true);
+    // xhr.send(null);
+    // xhr.onreadystatechange = function(){
+    //   console.log(xhr.readyState); // 2、3、4
+    // }
+
+
+    var xhr = createXHR();
+    xhr.open('get','note.txt',false); // false
+    xhr.send(null);
+    xhr.onreadystatechange = function(){  // 当send之后 没有状态码了， 才会执行状态事件，因此什么都没有
+      console.log(xhr.readyState); // 什么也没有
+    }
+
+
+</script>

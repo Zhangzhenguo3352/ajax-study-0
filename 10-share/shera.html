@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="ul">
+
+  </ul>
+
+
+  <script charset="utf-8">
+        //跨域资源共享
+
+      //1 创建ajax 对象
+      var xhr = new XMLHttpRequest();
+      //2 初始化
+      xhr.open('POST','http://localhost:9090/ajax',true);
+      //3 注册回调监听
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){
+          console.log(xhr.status,xhr.statusText)
+          console.log(xhr.responseText)   // 服务端 返回 过来数据
+          console.log(JSON.parse(xhr.responseText))
+        }
+      }
+      //4	发送请求
+      xhr.send() // 我发送 给客户端的数据
+  </script>
+</body>
+</html>

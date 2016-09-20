@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="button" onclick="btnclick()">查询</button>
+<ul id="ul">
+
+</ul>
+<script charset="utf-8">
+  // 请求完数据 ，放在 ul 里面
+  function load(data){
+    var oUl = document.getElementById('ul');
+
+    data.forEach(function(data,index){
+      var aLi = document.createElement('li');
+      aLi.innerHTML = data.name+'======='+index;
+      oUl.appendChild(aLi)
+    })
+
+
+  }
+</script>
+
+<script charset="utf-8">
+    // 创建 scr 发送 jsonp + padding 服务
+    // 点击按钮发送 请求
+    function btnclick(){
+      var script = document.createElement('script');
+      script.src='http://localhost:9090/ajax';
+      document.body.appendChild(script)
+    }
+
+
+</script>
+
+
+
+
+
+
+  <script charset="utf-8">
+    // // 创建 ajax 对象
+    // var xhr = new XMLHttpRequest;
+    // //  初始化
+    // xhr.open('GET','http://localhost:9090/ajax',true);
+    // // 注册回调监听
+    // xhr.onreadystatechange = function(){
+    //   if(xhr.readyState == 4){
+    //     console.log(xhr.status,xhr.statusText);
+    //     console.log(xhr.responseText)
+    //   }
+    // }
+    // // 发送
+    // xhr.send()
+  </script>
+</body>
+</html>

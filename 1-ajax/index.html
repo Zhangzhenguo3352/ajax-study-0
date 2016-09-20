@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//1， 创建ajax 对象
+		var xhr = new XMLHttpRequest(); // 
+		//2， 初始化
+		xhr.open('GET','/',true);
+		//3，注册回调监听
+		xhr.onreadystatechange = function(){
+			alert(xhr.readyState)
+		}
+		//4, 发送请求，真正向 后台发送请求
+		xhr.send()
+	</script>
+</body>
+</html>
+
+<!-- 
+0 当前请求没有发送
+1 open时 url地址已经打开，发送的参数已经完成
+2 响应头已经接受
+3 返回的数据 在服务端处理
+4 响应头的信息已经成功返回到客户端
+ -->
